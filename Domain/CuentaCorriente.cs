@@ -8,8 +8,8 @@ namespace Dsw2025Ej8.Domain;
 
 internal class CuentaCorriente : CuentaBancaria
 {
-    public CuentaCorriente(string numero, decimal saldo, TipoCuenta tipo, string[] titulares)
-        : base(numero, saldo, tipo, titulares)
+    public CuentaCorriente(string numero, decimal saldo, string[] titulares)
+        : base(numero, saldo, titulares)
     {
     }
 

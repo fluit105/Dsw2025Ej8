@@ -2,7 +2,6 @@
 
 public abstract class CuentaBancaria
 {
-    protected TipoCuenta _tipo;
     protected string _numero;
     protected decimal _saldo;
     protected Estado _estado;
@@ -11,11 +10,10 @@ public abstract class CuentaBancaria
     protected decimal _comision;
     protected string[] _titulares;
 
-    public CuentaBancaria(string numero, decimal saldo, TipoCuenta tipo, string[] titulares)
+    public CuentaBancaria(string numero, decimal saldo, string[] titulares)
     {
         _numero = numero;
         _saldo = saldo;
-        _tipo = tipo;
         _estado = Estado.Activa;
         _titulares = titulares;
     }
