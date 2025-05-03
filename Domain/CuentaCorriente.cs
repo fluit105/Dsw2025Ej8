@@ -1,33 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dsw2025Ej8.Domain;
-
-internal class CuentaCorriente : CuentaBancaria
+﻿internal class CuentaCorriente : CuentaBancaria
 {
     public CuentaCorriente(string numero, decimal saldo, string[] titulares)
         : base(numero, saldo, titulares)
     {
+        Comision = 0.02m;
     }
 
     public override void Depositar(decimal monto)
     {
-        monto -= monto * _comision;
-        _saldo += monto;
+        Saldo += monto * (1 - Comision);
     }
 
     public override void Retirar(decimal monto)
     {
-        if (_saldo - monto >= -_limiteDeDescubierto)
+        if (Saldo - monto >= -LimiteDeDescubierto)
         {
-            _saldo -= monto;
-
-            if (_saldo < 0)
+            Saldo -= monto;
+            if (Saldo < 0)
             {
-                _estado = Estado.Suspendida;
+                Estado = Estado.Suspendida;
             }
         }
     }
